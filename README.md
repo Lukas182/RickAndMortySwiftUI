@@ -1,8 +1,9 @@
 # Rick&Morty API SWIFTUI
 
-🇪🇸 Bienvenido a la **App de Rick & Morty** , aplicación de aprendizaje en SWIFTUI aplicando conocimientos recibidos en **SDP25**. 
+![App Screens](https://i.postimg.cc/hvdzzXsy/Rick-and-Morty.png)
 
-[Rick-and-Morty.png](https://postimg.cc/4HXNjNrV)
+
+🇪🇸 Bienvenido a la **App de Rick & Morty** , aplicación de aprendizaje en SWIFTUI aplicando conocimientos recibidos en **SDP25**. 
 
 ## 📕 Descripción
 
@@ -25,17 +26,18 @@ Me ha permitido aprender :
 - ✓ Extensiones de **URLSession**, **URLRequest** y **URL**
 - ✓ Uso de **ViewModifiers**
 - ✓ **Concurrencia estricta** Swift 6.0
+- ✓ Modo **Claro/Oscuro**
 
-## 🤹 Funcionalidades futuras
+## 🤹 Funcionalidades futuras
 
 - Persistencia de datos mediante **SwiftData**
 - Filtrado de personajes por su tipo
 - Almacenamiento de imágenes en disco
 - Swift Testing
 
-🇬🇧 Welcome to the **Rick & Morty App**, a learning application built with SWIFTUI applying knowledge acquired in **SDP25**.
+---
 
-![Rick-and-Morty.png](https://postimg.cc/4HXNjNrV)
+🇬🇧 Welcome to the **Rick & Morty App**, a learning application built with SWIFTUI applying knowledge acquired in **SDP25**.
 
 ## 📕 Description
 
@@ -58,6 +60,7 @@ It has allowed me to learn:
 - ✓ Extensions for **URLSession**, **URLRequest**, and **URL**  
 - ✓ Use of **ViewModifiers**  
 - ✓ **Strict concurrency** in Swift 6.0
+- ✓ **Light/Dark** mode
 
 ## 🤹 Future Features
 
