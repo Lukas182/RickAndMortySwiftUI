@@ -5,6 +5,8 @@
 
 🇪🇸 Bienvenido a la **App de Rick & Morty** , aplicación de aprendizaje en SWIFTUI aplicando conocimientos recibidos en **SDP25**. 
 
+### 🚩 Actualización ( 04/06/2025 ) : Añadidos nuevo filtro por estado del personaje
+
 ## 📕 Descripción
 
 Permite acceder a los personajes de la serie Rick & Morty , obtener información de la localización de cada uno de ellos además de mostrar en que capitulos aparece.
@@ -27,17 +29,20 @@ Me ha permitido aprender :
 - ✓ Uso de **ViewModifiers**
 - ✓ **Concurrencia estricta** Swift 6.0
 - ✓ Modo **Claro/Oscuro**
+- ✓ **Refactorización** 
 
 ## 🤹 Funcionalidades futuras
 
 - Persistencia de datos mediante **SwiftData**
-- Filtrado de personajes por su tipo
+- ~~Filtrado de personajes por su tipo~~
 - Almacenamiento de imágenes en disco
 - Swift Testing
 
 ---
 
 🇬🇧 Welcome to the **Rick & Morty App**, a learning application built with SWIFTUI applying knowledge acquired in **SDP25**.
+
+### 🚩 Update ( 04/06/2025 ) : Added new filter by character status
 
 ## 📕 Description
 
@@ -61,10 +66,11 @@ It has allowed me to learn:
 - ✓ Use of **ViewModifiers**  
 - ✓ **Strict concurrency** in Swift 6.0
 - ✓ **Light/Dark** mode
+- ✓ **Refactoring** 
 
 ## 🤹 Future Features
 
 - Data persistence using **SwiftData**  
-- Filtering characters by type  
+- ~~Filtering characters by type~~
 - Storing images on disk
 - Swift Testing
