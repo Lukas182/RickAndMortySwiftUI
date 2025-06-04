@@ -19,7 +19,7 @@ struct CharacterRepository: CharacterRepositoryProtocol, NetworkInteractor {
         return try await getJSON(for: .get(url), type: CharactersResponse.self)
     }
     
-    func searchCharacters(withText text: String) async throws -> CharactersResponse {
-        return try await getJSON(for: .get(.searchCharacterByName(text)), type: CharactersResponse.self)
+    func searchCharacters(withFilters filters: [URLQueryItem]) async throws -> CharactersResponse {
+        return try await getJSON(for: .get(.searchCharacterWithParameters(filters)), type: CharactersResponse.self)
     }
 }

@@ -12,9 +12,10 @@ struct CharacterListView: View {
         
         ZStack{
             NavigationStack {
-                SearchableGridView(characterViewModel: characterViewModel)
+                SearchableGridView()
                     .searchable(text: $characterViewModel.text)
                     .navigationTitle("Characters")
+                    .navigationBarTitleDisplayMode(.inline)
                     .navigationDestination(for: Character.self, destination: { character in
                         CharacterDetailView(character: character)
                     })

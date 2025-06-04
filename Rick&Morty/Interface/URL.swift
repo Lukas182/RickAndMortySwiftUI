@@ -10,8 +10,8 @@ extension URL {
     static let getLocations = baseURL.appendingPathComponent("location")
     static let getEpisodes = baseURL.appendingPathComponent("episode")
     
-    static func searchCharacterByName(_ text: String) -> URL {
-        getCharacters.appending(queryItems: [.name(text)])
+    static func searchCharacterWithParameters(_ parameters: [URLQueryItem]) -> URL {
+        getCharacters.appending(queryItems: parameters)
     }
     
 }

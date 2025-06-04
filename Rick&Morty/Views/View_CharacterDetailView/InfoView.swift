@@ -30,7 +30,7 @@ struct InfoView : View {
                         Text(character.type.isEmpty ? "N/A" : character.type)
                     }
                     LabeledContent("Status"){
-                        Text(character.status)
+                        Text(character.status.rawValue)
                     }
                     LabeledContent("Gender"){
                         Text(character.gender.rawValue)

@@ -4,7 +4,7 @@ extension Character {
     static let sample = Character(
         id: 1,
         name: "Rick",
-        status: "Alive",
+        status: .alive,
         species: "Human",
         type: "",
         gender: .male,

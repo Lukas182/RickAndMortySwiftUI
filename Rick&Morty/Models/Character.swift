@@ -4,7 +4,7 @@ struct Character: Codable, Identifiable, Equatable, Hashable {
     
     let id: Int
     let name: String
-    let status: String
+    let status: Character.Status
     let species: String
     let type: String
     let gender: Character.Gender
@@ -20,6 +20,14 @@ struct Character: Codable, Identifiable, Equatable, Hashable {
         case female = "Female"
         case genderLess = "Genderless"
         case unknown = "unknown"
+    }
+    
+    enum Status: String, CaseIterable,Codable, Identifiable {
+        case alive = "Alive"
+        case dead = "Dead"
+        case unknown = "unknown"
+        
+        var id: Self { self }
     }
     
     struct Location: Codable, Hashable {

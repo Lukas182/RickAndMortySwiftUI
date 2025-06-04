@@ -1,5 +1,10 @@
 import Foundation
 
+enum Action {
+    case fetch
+    case search(filters: [URLQueryItem])
+}
+
 @Observable
 final class CharactersViewModel {
 
@@ -8,6 +13,14 @@ final class CharactersViewModel {
     var info: Info?
     
     var text = ""
+    
+    var statusFilterSelected : Character.Status? {
+        didSet {
+            Task {
+                await getCharacters()
+            }
+        }
+    }
     
     var isPresentedHome = true
     
@@ -26,6 +39,16 @@ final class CharactersViewModel {
     
     var searchTask : Task<Void, Error>?
     
+    private func buildQueryItems() -> [URLQueryItem] {
+        var queryItems: [URLQueryItem] = []
+        if !text.isEmpty {
+            queryItems.append(.name(text))
+        }
+        if let statusFilterSelected {
+            queryItems.append(.status(statusFilterSelected.rawValue))
+        }
+        return queryItems
+    }
 }
 
 @MainActor
@@ -35,23 +58,43 @@ extension CharactersViewModel {
         loading = true
         defer { loading = false }
         
-        do {
-            
-            if text.isEmpty{
-                if characters.isEmpty {
-                    let response = try await characterRepository.fetchAllCharacters()
-                    characters = response.results
-                    info = response.info
+        if text.isEmpty{
+            if characters.isEmpty {
+                await doFetchCharacters(withAction: .fetch)
+            }else{
+                let queryItems = buildQueryItems()
+                if queryItems.isEmpty {
+                    await doFetchCharacters(withAction: .fetch)
+                }else{
+                    await doFetchCharacters(withAction: .search(filters: queryItems))
                 }
-            } else {
-                let response = try await characterRepository.searchCharacters(withText: text)
+            }
+        } else {
+            await doFetchCharacters(withAction: .search(filters: buildQueryItems()))
+        }
+    }
+    
+    private func doFetchCharacters(withAction: Action) async {
+        switch withAction
+        {
+        case .fetch:
+            do{
+                let response = try await characterRepository.fetchAllCharacters()
+                characters = response.results
+                info = response.info
+            } catch {
+                alertMessage = error.localizedDescription
+                alertPresented = true
+            }
+        case .search(let queryItems):
+            do {
+                let response = try await characterRepository.searchCharacters(withFilters: queryItems)
                 info = response.info
                 characters = response.results
+            } catch {
+                alertMessage = error.localizedDescription
+                alertPresented = true
             }
-            
-        } catch {
-            alertMessage = error.localizedDescription
-            alertPresented = true
         }
     }
     
