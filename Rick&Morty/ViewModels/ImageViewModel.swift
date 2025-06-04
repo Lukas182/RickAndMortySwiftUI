@@ -13,7 +13,7 @@ final class ImageViewModel {
         do {
             image = try await imgManager.image(from: url)
         } catch {
-            
+            print("Error recovering image \(error)")
         }
         
     }

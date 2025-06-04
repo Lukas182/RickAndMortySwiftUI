@@ -25,7 +25,7 @@ extension CharacterDetailViewModel {
         do {
             episodies = try await episodiesRepository.getInfoEpisodies(urls: urls)
         } catch {
-            
+            episodies = []
         }
     }
 }
